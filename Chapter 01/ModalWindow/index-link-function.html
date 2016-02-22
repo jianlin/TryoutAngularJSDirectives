@@ -7,7 +7,7 @@
 
     <style>
 
-        body { font: 16px "Lucida Grande", sans-serif }
+        body { font: 16px "Lucida Grande", sans-serif; background: #fff }
 
     </style>
 
@@ -38,10 +38,12 @@
 
                     element.bind('click', function() {
 
-                        element.css('background-color','white');
+                        element.css('background-color', '#ffc');
 
-                        scope.$apply(function(){
-                            scope.color="white";
+                        scope.$apply(function() {
+                            
+                            scope.color = "white";
+                            
                         });
 
                     });
