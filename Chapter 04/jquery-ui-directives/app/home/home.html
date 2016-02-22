@@ -1,0 +1,50 @@
+<style>
+.box {
+/*Set min-width to avoid text shrink*/
+	width: 300px;
+	height: 200px;
+	border: 1px solid #444;
+	color: #000;
+	text-align: center;
+	background-color: #ccc;
+}
+.drag {
+	width: 150px;
+	height: 150px;
+	padding: 0.5em;
+}
+.drop {
+	width: 300px;
+	height: 200px;
+}
+.drop-hover {
+	border: 2px dashed green;
+}
+</style>
+<div ng-controller="HomeCtrl">
+	<div class="splash" style="width:600px; margin:0 auto; text-align:center">
+		<h1>{{ title }}</h1>
+		<p>This is a template for a simple home screen website. Use it as a starting point to create something more unique.</p>
+		<code>app/home/home.html</code>
+		<hr>
+		<p><a href="http://www.github.com/newaeonweb/generator-angm" class="btn btn-primary" role="button">Learn more »</a></p>
+	</div>
+</div>
+<div ng-controller="DateCtrl">
+  <h1> Date: {{date | date:"dd/MM/yyyy"}}</h1>
+  <input type="text" ng-model="date" datepicker />
+</div>
+
+<div resizebox class="box">Content: jQuery Resize</div>
+
+<div ng-controller="progressbarCtrl">
+	<div progressbar="value"></div>
+</div>
+
+<div class="drag ui-widget-content" draggable>
+	<p>Draggable Content</p>
+</div>
+
+<div class="drop ui-widget-content" droppable>
+	<p>Droppable Container</p>
+</div>

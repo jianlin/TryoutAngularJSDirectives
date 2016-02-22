@@ -1,0 +1,25 @@
+<div class="container">
+	<h1>Metal Albums</h1>
+	<album-description item="listAlbums[0]" >
+	</album-description>
+	<div class="row">
+		<div class="col-sm-3" ng-repeat="album in listAlbums">
+			<album-description item="album" >
+			</album-description>
+		</div>
+	</div>
+	<br>
+	<form name="bandForm" novalidate>
+		<album-rating name="album" ng-model="user.choices" required></album-rating>
+		<hr>
+		<alert  type="danger" ng-if="bandForm.$invalid">
+			<ul ng-messages="bandForm.album.$error" ng-messages-multiple>
+				<li ng-message="albumRequired">Please Choose an Album</li>
+				<li ng-message="musicRequired">Please Rating the music</li>
+			</ul>
+		</alert>
+	</form>
+	<div ng-hide="bandForm.$invalid" class="well">
+		{{ user.choices }}
+	</div>
+</div>

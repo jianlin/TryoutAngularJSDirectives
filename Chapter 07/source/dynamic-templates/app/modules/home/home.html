@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="splash text-center">
+		<h1>{{ title }}</h1>
+		<p>This is a template for a simple home screen website. Use it as a starting point to create something more unique.</p>
+		<code>app/modules/home/home.html</code>
+		<hr>
+	</div>
+	<br>
+	<div class="row">
+		<content-item ng-repeat="item in content" content="item"></content-item>
+
+	</div>
+
+	<div class="row">
+		<post-item class="col-lg-4" ng-repeat="item in posts" data="item"></post-item>
+
+	</div>
+</div>

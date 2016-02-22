@@ -1,0 +1,101 @@
+<div class="container">
+	<!-- Bootstrap Modal -->
+	<div ng-controller="HomeCtrl">
+		<div class="splash" style="width:600px; margin:0 auto; text-align:center">
+			<h1>{{ title }}</h1>
+			<p>This is a template for a simple home screen website. Use it as a starting point to create something more unique.</p>
+			<code>app/home/home.html</code>
+			<hr>
+			<p><a ng-click="open()" class="btn btn-primary" role="button">Open Modal »</a></p>
+		</div>
+		<!-- Modal Script -->
+		<script type="text/ng-template" id="myModalContent.html">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3 class="modal-title">Hello from Modal!</h3>
+			</div>
+				<div class="modal-body">
+					Modal Content from: <b>{{ content }}</b>
+			</div>
+				<div class="modal-footer">
+					<button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+			</div>
+		</script>
+	</div>
+
+	<!-- Custom Modal -->
+	<div ng-controller="ModalCustomCtrl">
+		<div style="width:600px; margin:0 auto; text-align:center">
+			<button ng-click="toggleModal()" class="btn btn-default">Open modal custom Directive</button>
+		</div>
+		<!-- Modal from Custom Directive-->
+		<modal title="Modal Custom Directive" visible="showModal">
+			Content Modal from: <b>Custom Directive</b>
+		</modal>
+	</div>
+
+	<!-- Boostrap Tab -->
+	<div style="width:600px; margin:20px auto;">
+		<div ng-controller="BootstrapTabCtrl">
+			<tabset>
+				<tab ng-repeat="tab in tabs" heading="{{tab.title}}" active="tab.active" disabled="tab.disabled">
+					{{tab.content}}
+				</tab>
+			</tabset>
+		</div>
+	</div>
+
+	<!-- Custom Boostrap Tab -->
+	<div style="width:600px; margin:20px auto;">
+		<custom-tabs>
+			<pane title="Custom Tab One">
+				<div>Tab One Content.</div>
+			</pane>
+			<pane title="Custom Tab Two">
+				<div>Tab Two Content.</div>
+			</pane>
+			<pane title="Custom Tab Three">
+				<div>Tab Three Content.</div>
+			</pane>
+		</custom-tabs>
+	</div>
+
+	<!-- Boostrap Accordion -->
+	<div style="width:600px; margin:20px auto;">
+		<div ng-controller="AccordionCtrl">
+			<accordion close-others="oneAtATime">
+				<accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+					{{group.content}}
+				</accordion-group>
+			</accordion>
+		</div>
+	</div>
+	<!-- Overhide the default bootstrap template -->
+	<script type="text/ng-template" id="template/accordion/accordion-group.html">
+    <div class="accordion-group">
+		<div class="accordion-panel">
+    		<div class="accordion-heading">
+				<h4 class="accordion-title">
+        			<a class="accordion-toggle" ng-click="isOpen = !isOpen" accordion-transclude="heading">
+          			{{heading}}
+					</a>
+				</h4>
+			</div>
+      			<div class="accordion-body" collapse="!isOpen">
+        			<div class="accordion-inner" ng-transclude></div>
+				</div>
+		</div>
+	</div>
+	</script>
+	<!-- Boostrap Accordion loading Dynamic Content -->
+	<div style="width:600px; margin:20px auto;">
+		<div ng-controller="AccordionCtrlDynamic">
+			<accordion close-others="oneAtATime">
+				<accordion-group heading="{{repo.name}} - Stars: {{repo.stargazers_count}}" ng-repeat="repo in repos">
+					{{repo.description}}
+				</accordion-group>
+			</accordion>
+		</div>
+	</div>
+
+</div>

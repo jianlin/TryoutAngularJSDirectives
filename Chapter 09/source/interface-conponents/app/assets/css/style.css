@@ -1,0 +1,22 @@
+.card {
+	position: relative;
+	border: 1px solid #CCC;
+	border-radius: 6px;
+	text-align: center;
+	background-color: #D06363;
+	color: #fff;
+}
+.card .album {
+	position: relative;
+	margin-top: 15px;
+}
+.card .album img {
+	width: 150px;
+	height: 150px;
+	border-radius: 6%;
+	border: 2px solid #fff;
+}
+.card .content {
+	margin-top: 10px;
+	padding-bottom: 10px;
+}

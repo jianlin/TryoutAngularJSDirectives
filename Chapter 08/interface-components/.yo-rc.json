@@ -1,0 +1,17 @@
+{
+  "generator-angm": {
+    "appName": "interface-components",
+    "angularCookies": true,
+    "angularAnimate": true,
+    "angularTouch": true,
+    "angularSanitize": true,
+    "modules": [
+      {
+        "name": "album"
+      },
+      {
+        "name": "album-sales"
+      }
+    ]
+  }
+}

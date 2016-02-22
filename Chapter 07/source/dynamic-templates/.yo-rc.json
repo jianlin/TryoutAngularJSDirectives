@@ -1,0 +1,9 @@
+{
+  "generator-angm": {
+    "appName": "dynamic-templates",
+    "angularCookies": true,
+    "angularAnimate": true,
+    "angularTouch": true,
+    "angularSanitize": true
+  }
+}

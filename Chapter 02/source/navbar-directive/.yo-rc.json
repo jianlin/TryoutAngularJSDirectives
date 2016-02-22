@@ -1,0 +1,23 @@
+{
+  "generator-angm": {
+    "appName": "navbarexample",
+    "angularCookies": true,
+    "angularAnimate": true,
+    "angularTouch": true,
+    "angularSanitize": true,
+    "modules": [
+      {
+        "name": "about"
+      },
+      {
+        "name": "company"
+      },
+      {
+        "name": "news"
+      },
+      {
+        "name": "navbar"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "generator-angm": {
+    "appName": "interfacecomponents",
+    "angularCookies": true,
+    "angularAnimate": true,
+    "angularTouch": true,
+    "angularSanitize": true
+  }
+}

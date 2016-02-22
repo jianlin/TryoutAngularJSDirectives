@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-sm-4">
+		Best Album
+		<select ng-model="item.album" ng-options="i for i in selects.albums()" class="form-control">
+			<option value="" disabled>----</option>
+		</select>
+	</div>
+	<div class="col-sm-4">
+		Music
+		<select ng-model="item.music" ng-options="i for i in selects.music()" class="form-control">
+			<option value="" disabled>--</option>
+		</select>
+	</div>	
+</div>

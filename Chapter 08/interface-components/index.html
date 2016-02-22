@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt" ng-app="interface-components">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<base href="/">
+	<title>interface-components</title>
+	<meta name="description" content="Modular AngularJS with Angm-generator" />
+	<meta name="author" content="" />
+	<meta name="keywords" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=yes" />
+	<link rel="shortcut icon" href="app/assets/images/favicon.ico" />
+	<link rel="apple-touch-icon" href="app/assets/images/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="app/assets/images/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="app/assets/images/apple-touch-icon-114x114.png" />
+	<!-- injector:css -->
+	<link rel="stylesheet" href="/src/bower_components/bootstrap/dist/css/bootstrap.css">
+	<!-- endinjector -->
+	<link rel="stylesheet" href="/app/assets/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.css">
+</head>
+<body>
+
+<!--Beginning-->
+<section id="wrapper" scroll-to>
+	<div class="view-slide-in" ui-view></div>
+</section>
+<!--End-->
+
+<!-- injector:js -->
+<script src="/src/bower_components/jquery/dist/jquery.js"></script>
+<script src="/src/bower_components/es5-shim/es5-shim.js"></script>
+<script src="/src/bower_components/json3/lib/json3.min.js"></script>
+<script src="/src/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="/src/bower_components/angular/angular.js"></script>
+<script src="/src/bower_components/angular-resource/angular-resource.js"></script>
+<script src="/src/bower_components/angular-mocks/angular-mocks.js"></script>
+<script src="/src/bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="/src/bower_components/angular-animate/angular-animate.js"></script>
+<script src="/src/bower_components/angular-touch/angular-touch.js"></script>
+<script src="/src/bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="/src/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="/src/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/src/bower_components/angular-route/angular-route.js"></script>
+<script src="/app/app.js"></script>
+<script src="/app/modules/album-sales/album.sales.route.js"></script>
+<script src="/app/modules/album/album.route.js"></script>
+<script src="/app/modules/home/home.route.js"></script>
+<script src="/app/modules/album-sales/album.sales.controller.js"></script>
+<script src="/app/modules/album/album.controller.js"></script>
+<script src="/app/modules/home/home.controller.js"></script>
+<script src="/app/modules/album-sales/album.sales.service.js"></script>
+<script src="/app/modules/album/album.service.js"></script>
+<script src="/app/modules/home/home.service.js"></script>
+<script src="/app/modules/shared/directives/album-description/album.description.directive.js"></script>
+<script src="/app/modules/shared/directives/album-rating/album.rating.directive.js"></script>
+<script src="/app/modules/shared/directives/charts/charts.directive.js"></script>
+<!-- endinjector -->
+
+<!-- Charts Lib -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.min.js"></script>
+<!-- Charts Lib -->
+<!-- Ng Messages-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-messages.min.js"></script>
+<!-- Ng Messages-->
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+<div ng-controller="MappingCtrl">
+	<h1>Content from: mapping page</h1>
+		<map center="-23.630153, -46.563964" zoom="13">
+			<div ng-repeat="pos in positions">
+                <marker position="{{pos.lat}},{{pos.lng}}" animation="DROP"></marker>
+            </div>
+		</map>
+</div>

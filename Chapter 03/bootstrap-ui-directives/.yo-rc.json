@@ -1,0 +1,9 @@
+{
+  "generator-angm": {
+    "appName": "bootstrap-ui-directives",
+    "angularCookies": true,
+    "angularAnimate": true,
+    "angularTouch": true,
+    "angularSanitize": true
+  }
+}
