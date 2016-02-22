@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myFirstDirective">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="../../js/angular.js"></script>
+    <script>
+
+        // Using inline HTML Templates
+        var app = angular.module('myFirstDirective', []);
+
+        app.directive('helloSimpleDirective', function() {
+            return {
+                scope: true,  // inherits child scope from parent.
+                restrict: 'E', // An Element Sirecitve.
+                replace: 'true',
+                template: '<h3>Hello Simple Directive</h3>'
+            };
+        });
+
+    </script>
+</head>
+<body>
+    <hello-simple-directive></hello-simple-directive>
+</body>
+</html>
