@@ -25,6 +25,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #ffc;
+            border-radius: 6px;
 
         }
         .modal-content {
@@ -49,13 +50,19 @@
         app = angular.module('SimpleModal', []);
 
         app.directive('modalWindow', function() {
-            return {
+            
+            return {                    // the DDO
+                
                 restrict: 'E',
+                
                 scope: {
                     show: '='
                 },
-                replace: true, // Replace with template
-                transclude: true, // To use custom content
+                
+                replace: true,          // Replace with template
+                
+                transclude: true,       // To use custom content
+                
                 link: function(scope, element, attrs) {
 
                     scope.windowStyle = {};
@@ -63,6 +70,7 @@
                     if (attrs.width) {
                         scope.windowStyle.width = attrs.width;
                     }
+                    
                     if (attrs.height) {
                         scope.windowStyle.height = attrs.height;
                     }
@@ -70,16 +78,23 @@
                     scope.hideModal = function() {
                         scope.show = false;
                     };
+                    
                 },
-                template: "<div ng-show='show'><div class='modal-overlay' ng-click='hideModal()'></div><div class='modal-background' ng-style='windowStyle'><div class='modal-close' ng-click='hideModal()'>X</div><div class='modal-content' ng-transclude></div></div></div>"
+                
+                template: "<div ng-show='show'><div class='modal-overlay' ng-click='hideModal()'></div><div class='modal-background' ng-style='windowStyle'><div class='modal-close' ng-click='hideModal()'>&#x24e7;</div><div class='modal-content' ng-transclude></div></div></div>"
+                
             };
+            
         });
 
         app.controller('ModalCtrl', ['$scope', function($scope) {
+            
             $scope.modalShown = false;
+            
             $scope.toggleModal = function() {
                 $scope.modalShown = !$scope.modalShown;
             };
+            
         }]);
 
     </script>
@@ -88,12 +103,17 @@
 <body ng-app='SimpleModal'>
 
     <div ng-controller='ModalCtrl'>
+        
         <button ng-click='toggleModal()'>Open Modal</button>
+        
         <modal-window show='modalShown' width='400px' height='60%'>
             <p>Hello Simple Modal Window<p>
         </modal-window>
+        
     </div>
-    Sample text here
     
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+
 </body>
 </html>
