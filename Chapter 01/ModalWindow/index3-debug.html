@@ -92,13 +92,15 @@
 
                 link: function(scope, element, attrs) {
 
-                    // the directive scope has 3 properties:
+                    // the directive's isolate scope has 3 properties:
                     //     windowStyle: an object to specify the CSS styles
                     //     showit: a boolean to state whether to show the modal, by the 
                     //             template's ng-show="showit"
                     //     hideModal: a function to set showit to false, by the user
                     //                clicking on the dark background or close icon,
                     //                triggered by ng-click="hideModal()"
+                    
+                    // the directive's isolate scope is id 3
                     
                     console.log("Entering the link function");
                     
@@ -133,6 +135,8 @@
             // Controller scope has 2 properties: 
             //     modalShown: a boolean
             //     toggleModal: a function
+            
+            // Controller scope is id 2
             
             console.log("Entering the ModalCtrl controller");
             
