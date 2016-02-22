@@ -87,7 +87,7 @@
 
         });
 
-        app.controller('ModalCtrl', ['$scope', function($scope) {
+        app.controller('ModalCtrl', function($scope) {
 
             $scope.modalShown = false;
 
@@ -95,7 +95,7 @@
                 $scope.modalShown = !$scope.modalShown;
             };
 
-        }]);
+        });
 
         // <div ng-init="nTimes = (new Array(11)).join('a').split('');"></div>
     </script>
@@ -108,7 +108,7 @@
         <button ng-click='toggleModal()'>Open Modal</button>
 
         <modal-window show='modalShown' width='80%' height='60%'>
-            <p>Hello Simple Modal Window<p>
+            <p>Simple Modal Window says Hi<p>
         </modal-window>
 
     </div>
