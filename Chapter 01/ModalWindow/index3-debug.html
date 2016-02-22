@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html ng-app='SimpleModal'>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <style>
+
+        body { font: 16px "Lucida Grande", sans-serif }
+
+        .modal-overlay {
+            position: absolute;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.8;
+        }
+        
+        .modal-background {
+            z-index: 1000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffc;
+            border-radius: 6px;
+
+        }
+        
+        .modal-content {
+            padding:10px;
+            text-align: center;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            padding: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+    </style>
+
+    <script src="../../js/angular.js"></script>
+
+    
+    <script type="text/ng-template" id="modal.html">
+        
+        <div ng-show='show'>
+            
+            <div class='modal-overlay' ng-click='hideModal()'></div>
+            
+            <div class='modal-background' ng-style='windowStyle'>
+                
+                <div class='modal-close' ng-click='hideModal()'>&#x24e7;</div>
+                
+                <div class='modal-content' ng-transclude></div>
+                
+            </div>
+            
+        </div>
+        
+    </script>
+
+
+    <script>
+
+        // Creating a simple Modal Directive
+        
+        app = angular.module('SimpleModal', []);
+
+        app.directive('modalWindow', function() {
+            
+            console.log("Entering the function that returns the DDO");
+
+            return {                    // the DDO
+
+                restrict: 'E',
+
+                scope: {
+                    show: '='
+                },
+
+                replace: true,          // Replace with template
+
+                transclude: true,       // To use custom content
+
+                link: function(scope, element, attrs) {
+
+                    console.log("Entering the link function");
+                    
+                    scope.windowStyle = {};
+
+                    if (attrs.width) {
+                        scope.windowStyle.width = attrs.width;
+                    }
+
+                    if (attrs.height) {
+                        scope.windowStyle.height = attrs.height;
+                    }
+
+                    scope.hideModal = function() {
+                        scope.show = false;
+                    };
+
+                },
+
+                templateUrl: "modal.html"
+
+            };  // end of DDO
+
+        });
+
+        app.controller('ModalCtrl', function($scope) {
+
+            console.log("Entering the ModalCtrl controller");
+            
+            $scope.modalShown = false;
+
+            $scope.toggleModal = function() {
+                $scope.modalShown = !$scope.modalShown;
+            };
+
+        });
+
+    </script>
+    
+    
+</head>
+
+<body>
+
+    <div ng-controller='ModalCtrl'>
+
+        <button ng-click='toggleModal()'>Open Modal</button>
+
+        <modal-window show='modalShown' width='80%' height='60%'>
+            
+            <p>Simple Modal Window says Hi<p>
+            
+        </modal-window>
+
+    </div>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    
+</body>
+</html>
