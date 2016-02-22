@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="linkdirectives">
-    
+
 <head>
     <meta charset="utf-8">
     <title></title>
@@ -13,48 +13,60 @@
 
     <script src="../../js/angular.js"></script>
 
-    
+
     <script>
 
         // The link function
-        
+
         var app = angular.module('linkdirectives', []);
 
         app.controller('LinkCtrl', function($scope) {
 
         });
 
-        app.directive('linkFunction',function(){
-          return{
-            restrict: 'AE',
-            replace: true,
-            template: '<p style="background-color:{{colorName}}">Link Function Directive</p>',
-            link: function(scope, element, attribute){
-              element.bind('click',function(){
-                element.css('background-color','white');
-                scope.$apply(function(){
-                  scope.color="white";
-                });
-              });
-                
-              element.bind('mouseover',function(){
-                element.css('cursor','pointer');
-              });
-                
-            }
-          }
+        app.directive('linkFunction', function() {
+
+            return {        // the DDO
+
+                restrict: 'AE',
+
+                replace: true,
+
+                template: '<p style="background-color:{{colorName}}">Link Function Directive</p>',
+
+                link: function(scope, element, attribute) {
+
+                    element.bind('click', function() {
+
+                        element.css('background-color','white');
+
+                        scope.$apply(function(){
+                            scope.color="white";
+                        });
+
+                    });
+
+                    element.bind('mouseover', function() {
+
+                        element.css('cursor','pointer');
+
+                    });
+
+                }
+            }   // end of DDO
+
         });
 
     </script>
-    
-    
+
+
 </head>
 
 <body ng-controller="LinkCtrl">
-    
-    <input type="text" ng-model="colorName" placeholder="Insert a color name"/>
+
+    <input type="text" ng-model="colorName" placeholder="Insert a color name">
     <link-function></link-function>
-    
+
 </body>
-    
+
 </html>
