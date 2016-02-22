@@ -51,7 +51,7 @@
     
     <script type="text/ng-template" id="modal.html">
         
-        <div ng-show='show'>
+        <div ng-show='showit'>
             
             <div class='modal-overlay' ng-click='hideModal()'></div>
             
@@ -83,7 +83,7 @@
                 restrict: 'E',
 
                 scope: {
-                    show: '='
+                    showit: '='
                 },
 
                 replace: true,          // Replace with template
@@ -92,6 +92,14 @@
 
                 link: function(scope, element, attrs) {
 
+                    // we give the directive scope 3 properties:
+                    //     windowStyle: an object to specify the CSS styles
+                    //     showit: a boolean to state whether to show the modal, by the 
+                    //             template's ng-show="showit"
+                    //     hideModal: a function to set showit to false, by the user
+                    //                clicking on the dark background or close icon,
+                    //                triggered by ng-click="hideModal()"
+                    
                     console.log("Entering the link function");
                     
                     scope.windowStyle = {};
@@ -105,8 +113,12 @@
                     }
 
                     scope.hideModal = function() {
-                        scope.show = false;
+                        scope.showit = false;
                     };
+                    
+                    setInterval(function() {
+                        console.log("directive scope", scope);
+                    }, 3000);
 
                 },
 
@@ -116,8 +128,12 @@
 
         });
 
-        app.controller('ModalCtrl', function($scope) {
+        app.controller('ModalCtrl', function($scope, $interval, $log) {
 
+            // Controller scope has 2 properties: 
+            //     modalShown: a boolean
+            //     toggleModal: a function
+            
             console.log("Entering the ModalCtrl controller");
             
             $scope.modalShown = false;
@@ -125,6 +141,10 @@
             $scope.toggleModal = function() {
                 $scope.modalShown = !$scope.modalShown;
             };
+            
+            $interval(function() {
+                $log.log($scope);
+            }, 1000);
 
         });
 
@@ -139,7 +159,7 @@
 
         <button ng-click='toggleModal()'>Open Modal</button>
 
-        <modal-window show='modalShown' width='80%' height='60%'>
+        <modal-window showit='modalShown' width='80%' height='60%'>
             
             <p>Simple Modal Window says Hi<p>
             
